@@ -27,9 +27,9 @@ public class ProdutoController {
     }
 
     @PostMapping("/cadastraProduto")
-    public ResponseEntity<String> cadastraProduto(@RequestBody ProdutoDTO produtoDTO){
-        produtoService.cadastraProduto(produtoDTO);
-        return ResponseEntity.ok("Produto cadastrado com sucesso! ");
+    public ResponseEntity<Produto> cadastraProduto(@RequestBody ProdutoDTO produtoDTO){
+        Produto produto = produtoService.cadastraProduto(produtoDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(produto);
     }
 
     @DeleteMapping("/excluiProduto/{id}")

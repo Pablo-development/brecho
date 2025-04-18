@@ -22,7 +22,7 @@ public class VendaController {
     }
     
     @PostMapping("/criaVenda")
-    public ResponseEntity criaVenda(){
+    public ResponseEntity<String> criaVenda(){
         vendaService.criaVenda();
         return ResponseEntity.status(HttpStatus.CREATED).body("Venda iniciada com sucesso! ");
     }

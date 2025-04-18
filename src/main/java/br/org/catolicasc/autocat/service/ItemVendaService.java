@@ -1,5 +1,6 @@
 package br.org.catolicasc.autocat.service;
 
+import br.org.catolicasc.autocat.dto.ItemVendaDTO;
 import br.org.catolicasc.autocat.model.ItemVenda;
 import br.org.catolicasc.autocat.model.Produto;
 import br.org.catolicasc.autocat.model.Venda;
@@ -8,7 +9,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ItemVendaService {
@@ -29,9 +30,13 @@ public class ItemVendaService {
         itemVendaRepository.delete(itemVenda);
     }
 
-    public ItemVenda getItemById(List<ItemVenda> list, Long id){
+    public ItemVenda getItemFromListById(List<ItemVenda> list, Long id){
         return list.stream().filter(itemVenda -> itemVenda.getIdItem().equals(id)).findFirst()
                 .orElseThrow(()-> new EntityNotFoundException("Item não encontrado na venda"));
     }
 
+    public List<ItemVendaDTO> getSoldItensById(Long id) {
+        return itemVendaRepository.getItemVendaListByIdItem(id)
+                .stream().map(ItemVendaDTO::new).toList();
+    }
 }

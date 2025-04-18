@@ -16,9 +16,9 @@ public class ProdutoService {
         this.produtoRepository = produtoRepository;
     }
 
-    public void cadastraProduto(ProdutoDTO produtoDTO){
+    public Produto cadastraProduto(ProdutoDTO produtoDTO){
         Produto produto = new Produto(produtoDTO.getPreco(), produtoDTO.getQuantidade());
-        produtoRepository.save(produto);
+        return produtoRepository.save(produto);
     }
 
     public void excluiProdutoPorId(Long id){

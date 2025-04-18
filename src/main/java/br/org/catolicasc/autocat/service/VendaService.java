@@ -41,7 +41,7 @@ public class VendaService {
 
     public void removeItemVenda(Long idVenda, Long idItem) {
         Venda venda = getVendaPorId(idVenda);
-        ItemVenda item = itemVendaService.getItemById(venda.getVendaList(), idItem);
+        ItemVenda item = itemVendaService.getItemFromListById(venda.getVendaList(), idItem);
         venda.getVendaList().remove(item);
         itemVendaService.deleteItemVendaById(item);
         vendaRepository.save(venda);
