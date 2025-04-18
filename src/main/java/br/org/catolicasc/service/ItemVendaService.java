@@ -1,15 +1,14 @@
-package br.org.catolicasc.autocat.service;
+package br.org.catolicasc.service;
 
-import br.org.catolicasc.autocat.dto.ItemVendaDTO;
-import br.org.catolicasc.autocat.model.ItemVenda;
-import br.org.catolicasc.autocat.model.Produto;
-import br.org.catolicasc.autocat.model.Venda;
-import br.org.catolicasc.autocat.repository.ItemVendaRepository;
+import br.org.catolicasc.dto.ItemVendaDTO;
+import br.org.catolicasc.model.ItemVenda;
+import br.org.catolicasc.model.Produto;
+import br.org.catolicasc.model.Venda;
+import br.org.catolicasc.repository.ItemVendaRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class ItemVendaService {

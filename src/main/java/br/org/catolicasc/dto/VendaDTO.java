@@ -1,6 +1,6 @@
-package br.org.catolicasc.autocat.dto;
+package br.org.catolicasc.dto;
 
-import br.org.catolicasc.autocat.model.Venda;
+import br.org.catolicasc.model.Venda;
 import lombok.Getter;
 import lombok.Setter;
 

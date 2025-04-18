@@ -1,6 +1,6 @@
-package br.org.catolicasc.autocat.dto;
+package br.org.catolicasc.dto;
 
-import br.org.catolicasc.autocat.model.ItemVenda;
+import br.org.catolicasc.model.ItemVenda;
 import lombok.Getter;
 import lombok.Setter;
 import jakarta.validation.constraints.NotNull;

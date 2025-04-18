@@ -1,9 +1,8 @@
-package br.org.catolicasc.autocat.controller;
+package br.org.catolicasc.controller;
 
 
-import br.org.catolicasc.autocat.dto.ItemVendaDTO;
-import br.org.catolicasc.autocat.model.ItemVenda;
-import br.org.catolicasc.autocat.service.ItemVendaService;
+import br.org.catolicasc.dto.ItemVendaDTO;
+import br.org.catolicasc.service.ItemVendaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +22,7 @@ public class RelatorioController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<List<ItemVendaDTO>> getItemList(@PathVariable Long id){
+    public ResponseEntity<List<ItemVendaDTO>> getSoldItemListById(@PathVariable Long id){
         List<ItemVendaDTO> itemList = itemVendaService.getSoldItensById(id);
         return ResponseEntity.ok(itemList);
     }

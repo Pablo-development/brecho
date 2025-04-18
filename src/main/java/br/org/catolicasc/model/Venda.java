@@ -1,4 +1,4 @@
-package br.org.catolicasc.autocat.model;
+package br.org.catolicasc.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package br.org.catolicasc.autocat;
+package br.org.catolicasc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

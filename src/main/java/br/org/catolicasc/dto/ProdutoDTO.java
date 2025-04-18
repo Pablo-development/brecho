@@ -1,4 +1,4 @@
-package br.org.catolicasc.autocat.dto;
+package br.org.catolicasc.dto;
 
 import lombok.Getter;
 import lombok.Setter;

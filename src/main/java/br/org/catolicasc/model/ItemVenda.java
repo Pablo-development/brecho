@@ -1,6 +1,5 @@
-package br.org.catolicasc.autocat.model;
+package br.org.catolicasc.model;
 
-import br.org.catolicasc.autocat.dto.ProdutoVendaDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

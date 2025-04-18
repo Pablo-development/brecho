@@ -1,6 +1,6 @@
-package br.org.catolicasc.autocat.repository;
+package br.org.catolicasc.repository;
 
-import br.org.catolicasc.autocat.model.ItemVenda;
+import br.org.catolicasc.model.ItemVenda;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.data.jpa.repository.Query;

@@ -1,10 +1,9 @@
-package br.org.catolicasc.autocat.controller;
+package br.org.catolicasc.controller;
 
-import br.org.catolicasc.autocat.dto.ProdutoVendaDTO;
-import br.org.catolicasc.autocat.dto.VendaDTO;
+import br.org.catolicasc.dto.ProdutoVendaDTO;
 
-import br.org.catolicasc.autocat.model.Venda;
-import br.org.catolicasc.autocat.service.VendaService;
+import br.org.catolicasc.model.Venda;
+import br.org.catolicasc.service.VendaService;
 
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

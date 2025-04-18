@@ -1,8 +1,8 @@
-package br.org.catolicasc.autocat.service;
+package br.org.catolicasc.service;
 
-import br.org.catolicasc.autocat.dto.ProdutoDTO;
-import br.org.catolicasc.autocat.model.Produto;
-import br.org.catolicasc.autocat.repository.ProdutoRepository;
+import br.org.catolicasc.dto.ProdutoDTO;
+import br.org.catolicasc.model.Produto;
+import br.org.catolicasc.repository.ProdutoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.List;

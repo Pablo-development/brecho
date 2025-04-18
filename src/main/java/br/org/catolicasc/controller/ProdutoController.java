@@ -1,8 +1,8 @@
-package br.org.catolicasc.autocat.controller;
+package br.org.catolicasc.controller;
 
-import br.org.catolicasc.autocat.dto.ProdutoDTO;
-import br.org.catolicasc.autocat.model.Produto;
-import br.org.catolicasc.autocat.service.ProdutoService;
+import br.org.catolicasc.dto.ProdutoDTO;
+import br.org.catolicasc.model.Produto;
+import br.org.catolicasc.service.ProdutoService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
