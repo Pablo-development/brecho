@@ -31,10 +31,6 @@ public class VendaService {
         return vendaRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Venda não encontrada"));
     }
 
-    public VendaDTO getVendaList(Long id) {
-        return new VendaDTO(getVendaPorId(id));
-    }
-
      public void adicionaProdutoVenda(ProdutoVendaDTO produtoVendaDTO) {
         Venda venda = getVendaPorId(produtoVendaDTO.getIdVenda());
         Produto produto = produtoService.findProdutoById(produtoVendaDTO.getIdProduto());

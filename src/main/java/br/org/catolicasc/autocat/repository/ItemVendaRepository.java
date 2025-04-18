@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface ItemVendaRepository extends JpaRepository<ItemVenda, Long> {
-    @Query("SELECT i FROM ItemVenda i WHERE i.venda.id = :venda_id")
-    public List<ItemVenda> findItemVendaByIdItem(@Param(("venda_id")) Long idVenda);
+    @Query("SELECT i FROM ItemVenda i WHERE i.produto.id = :idProduto")
+    public List<ItemVenda> getItemVendaListByIdItem(@Param("idProduto") Long idProduto);
 }

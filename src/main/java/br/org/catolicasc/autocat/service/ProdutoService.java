@@ -26,13 +26,13 @@ public class ProdutoService {
         produtoRepository.deleteById(id);
    }
 
-   public void atualizaProduto(Long id, Produto produto){
+   public Produto atualizaProduto(Long id, ProdutoDTO produto){
 
         Produto produtoToChange = findProdutoById(id);
 
         produtoToChange.setQuantidade(produto.getQuantidade());
         produtoToChange.setPreco(produto.getPreco());
-        produtoRepository.save(produtoToChange);
+        return produtoRepository.save(produtoToChange);
    }
 
    public Produto findProdutoById(Long id){

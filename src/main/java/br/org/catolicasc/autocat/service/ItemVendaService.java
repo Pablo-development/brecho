@@ -33,4 +33,5 @@ public class ItemVendaService {
         return list.stream().filter(itemVenda -> itemVenda.getIdItem().equals(id)).findFirst()
                 .orElseThrow(()-> new EntityNotFoundException("Item não encontrado na venda"));
     }
+
 }

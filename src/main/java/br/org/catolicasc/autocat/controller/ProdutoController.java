@@ -21,7 +21,7 @@ public class ProdutoController {
     }
 
 
-    @GetMapping("/listaProdutos")
+    @GetMapping
     public List<Produto> listaProdutos(){
         return produtoService.listaProdutos();
     }
@@ -43,8 +43,7 @@ public class ProdutoController {
     }
 
     @PutMapping("/atualizaProduto/{id}")
-    public ResponseEntity<Produto> atualizaProduto(@PathVariable Long id, @RequestBody Produto produto){
-        produtoService.atualizaProduto(id, produto);
-        return ResponseEntity.ok(produtoService.findProdutoById(id));
+    public ResponseEntity<Produto> atualizaProduto(@PathVariable Long id, @RequestBody ProdutoDTO produto){
+        return ResponseEntity.ok(produtoService.atualizaProduto(id, produto));
     }
 }

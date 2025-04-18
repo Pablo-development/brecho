@@ -3,6 +3,7 @@ package br.org.catolicasc.autocat.controller;
 import br.org.catolicasc.autocat.dto.ProdutoVendaDTO;
 import br.org.catolicasc.autocat.dto.VendaDTO;
 
+import br.org.catolicasc.autocat.model.Venda;
 import br.org.catolicasc.autocat.service.VendaService;
 
 import jakarta.validation.Valid;
@@ -27,8 +28,8 @@ public class VendaController {
     }
 
     @GetMapping("/retornalistaVenda/{id}")
-    public ResponseEntity<VendaDTO> retornalistaVenda(@PathVariable Long id) {
-        return ResponseEntity.ok(vendaService.getVendaList(id));
+    public ResponseEntity<Venda> retornalistaVenda(@PathVariable Long id) {
+        return ResponseEntity.ok(vendaService.getVendaPorId(id));
     }
 
     @PostMapping("/adicionaProdutoVenda")
@@ -38,8 +39,8 @@ public class VendaController {
     }
 
     @DeleteMapping("/removeItemVendaPorId/{idItem}/{idVenda}")
-    public ResponseEntity<VendaDTO> removeProdutoVenda(@PathVariable Long idItem, @PathVariable Long idVenda){
+    public ResponseEntity<Venda> removeProdutoVenda(@PathVariable Long idItem, @PathVariable Long idVenda){
         vendaService.removeItemVenda(idVenda, idItem);
-        return ResponseEntity.ok(vendaService.getVendaList(idVenda));
+        return ResponseEntity.ok(vendaService.getVendaPorId(idVenda));
     }
 }
