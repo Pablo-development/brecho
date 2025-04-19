@@ -17,7 +17,7 @@ public class ProductService {
     }
 
     public Product registerProduct(ProductDTO productDTO) {
-        Product product = new Product(productDTO.getPrice(), productDTO.getQuantity());
+        Product product = new Product(productDTO.getPrice(), productDTO.getQuantity(), productDTO.getCategory());
         return productRepository.save(product);
     }
 

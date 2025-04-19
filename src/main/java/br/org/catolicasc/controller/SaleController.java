@@ -1,6 +1,6 @@
 package br.org.catolicasc.controller;
 
-import br.org.catolicasc.dto.ProductSaleDTO;
+import br.org.catolicasc.dto.ProductItemSaleDTO;
 import br.org.catolicasc.model.Sale;
 import br.org.catolicasc.service.SaleService;
 
@@ -31,8 +31,8 @@ public class SaleController {
     }
 
     @PostMapping("/{id}/items")
-    public ResponseEntity<String> addProductToSale(@PathVariable Long id, @RequestBody @Valid ProductSaleDTO productSaleDTO) {
-        saleService.addProductToSale(id, productSaleDTO);
+    public ResponseEntity<String> addProductToSale(@PathVariable Long id, @RequestBody @Valid ProductItemSaleDTO productItemSaleDTO) {
+        saleService.addProductToSale(id, productItemSaleDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body("Product successfully added!");
     }
 

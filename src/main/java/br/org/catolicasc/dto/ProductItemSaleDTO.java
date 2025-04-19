@@ -8,16 +8,16 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductSaleDTO {
+public class ProductItemSaleDTO {
 
     @NotNull
     private Long productId;
 
 
-    public ProductSaleDTO() {
+    public ProductItemSaleDTO() {
     }
 
-    public ProductSaleDTO(SaleItem saleItem) {
+    public ProductItemSaleDTO(SaleItem saleItem) {
         this.productId = saleItem.getProduct().getId();
     }
 }

@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull;
 
 @Getter
 @Setter
-public class ItemSaleDTO extends ProductSaleDTO {
+public class ItemSaleDTO extends ProductItemSaleDTO {
 
     @NotNull
     private Long saleItemId;

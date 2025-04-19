@@ -1,6 +1,6 @@
 package br.org.catolicasc.service;
 
-import br.org.catolicasc.dto.ProductSaleDTO;
+import br.org.catolicasc.dto.ProductItemSaleDTO;
 import br.org.catolicasc.model.SaleItem;
 import br.org.catolicasc.model.Product;
 import br.org.catolicasc.model.Sale;
@@ -31,9 +31,9 @@ public class SaleService {
                 .orElseThrow(() -> new EntityNotFoundException("Sale not found"));
     }
 
-    public void addProductToSale(Long saleId, ProductSaleDTO productSaleDTO) {
+    public void addProductToSale(Long saleId, ProductItemSaleDTO productItemSaleDTO) {
         Sale sale = getSaleById(saleId);
-        Product product = productService.findProductById(productSaleDTO.getProductId());
+        Product product = productService.findProductById(productItemSaleDTO.getProductId());
         SaleItem saleItem = saleItemService.createSaleItem(sale, product);
         sale.getSaleItemList().add(saleItem);
         saleRepository.save(sale);
