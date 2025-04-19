@@ -1,5 +1,6 @@
 package br.org.catolicasc.dto;
 
+import br.org.catolicasc.model.Category;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -15,5 +16,10 @@ public class ProductDTO {
     @Min(value = 0)
     private Double price;
 
+    @NotNull
+    @Min(value = 0)
     private int quantity;
+
+    @NotNull
+    private Category category;
 }
