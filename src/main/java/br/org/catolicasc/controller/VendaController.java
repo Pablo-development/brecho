@@ -24,11 +24,9 @@ public class VendaController {
 
     //ta feio esse codigo, mas deu preguiça de ajustar agora
     @GetMapping("/getSaleList/{id}")
-    public ResponseEntity<VendaDTO> getVendaList(@PathVariable Long id) {
+    public ResponseEntity<Venda> getVendaList(@PathVariable Long id) {
         Venda venda = vendaService.getVendaPorId(id);
-        VendaDTO vendaDTO = new VendaDTO();
-        vendaDTO.toDTO(venda);
-        return ResponseEntity.ok(vendaDTO);
+        return ResponseEntity.ok(venda);
     }
 
     @PostMapping("/criaVenda")
