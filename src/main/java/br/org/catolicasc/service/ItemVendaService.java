@@ -9,6 +9,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ItemVendaService {
@@ -17,6 +18,11 @@ public class ItemVendaService {
 
     public ItemVendaService(ItemVendaRepository itemVendaRepository) {
         this.itemVendaRepository = itemVendaRepository;
+    }
+
+
+    public List<ItemVendaDTO> getItemVendaList(){
+        return itemVendaRepository.findAll().stream().map(ItemVendaDTO::new).toList();
     }
 
     public ItemVenda criaItemVenda(Venda venda, Produto produto){

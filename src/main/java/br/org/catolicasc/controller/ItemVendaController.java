@@ -13,12 +13,18 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/relatorio")
-public class RelatorioController {
+public class ItemVendaController {
 
     private final ItemVendaService itemVendaService;
 
-    public RelatorioController(ItemVendaService itemVendaService) {
+    public ItemVendaController(ItemVendaService itemVendaService) {
         this.itemVendaService = itemVendaService;
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ItemVendaDTO>> listar() {
+        List<ItemVendaDTO> itemList = itemVendaService.getItemVendaList();
+        return ResponseEntity.ok().body(itemList);
     }
 
     @GetMapping("{id}")
