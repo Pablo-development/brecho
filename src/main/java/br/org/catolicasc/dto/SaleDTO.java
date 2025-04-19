@@ -1,6 +1,6 @@
 package br.org.catolicasc.dto;
 
-import br.org.catolicasc.model.Venda;
+import br.org.catolicasc.model.Sale;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,15 +12,15 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class VendaDTO {
+public class SaleDTO {
     private Long id;
     private LocalDateTime dateTime;
-    private List<ItemVendaDTO> itensVenda;
+    private List<ItemSaleDTO> saleItemList;
 
-    public VendaDTO toDTO(Venda venda) {
-        VendaDTO dto = new VendaDTO();
-        this.id = venda.getId();
-        this.dateTime = venda.getDateTime();
+    public SaleDTO toDTO(Sale sale) {
+        SaleDTO dto = new SaleDTO();
+        this.id = sale.getId();
+        this.dateTime = sale.getDateTime();
         return dto;
     }
 }

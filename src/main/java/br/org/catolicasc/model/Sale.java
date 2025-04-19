@@ -12,20 +12,20 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "venda")
-public class Venda {
+@Table(name = "sale")
+public class Sale {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @OneToMany(mappedBy = "venda", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ItemVenda> vendaList;
+    @OneToMany(mappedBy = "sale", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SaleItem> SaleItemList;
 
     private LocalDateTime dateTime;
 
-    public Venda(){
+    public Sale(){
         this.dateTime = LocalDateTime.now();
-        this.vendaList = new ArrayList<>();
+        this.SaleItemList = new ArrayList<>();
     }
 }
