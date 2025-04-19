@@ -2,6 +2,7 @@ package br.org.catolicasc.controller;
 
 import br.org.catolicasc.dto.ProdutoVendaDTO;
 
+import br.org.catolicasc.dto.VendaDTO;
 import br.org.catolicasc.model.Venda;
 import br.org.catolicasc.service.VendaService;
 
@@ -19,26 +20,31 @@ public class VendaController {
     public VendaController(VendaService vendaService){
         this.vendaService = vendaService;
     }
-    
+
+
+    //ta feio esse codigo, mas deu preguiça de ajustar agora
+    @GetMapping("/getSaleList/{id}")
+    public ResponseEntity<VendaDTO> getVendaList(@PathVariable Long id) {
+        Venda venda = vendaService.getVendaPorId(id);
+        VendaDTO vendaDTO = new VendaDTO();
+        vendaDTO.toDTO(venda);
+        return ResponseEntity.ok(vendaDTO);
+    }
+
     @PostMapping("/criaVenda")
-    public ResponseEntity<String> criaVenda(){
+    public ResponseEntity<String> createVenda(){
         vendaService.criaVenda();
         return ResponseEntity.status(HttpStatus.CREATED).body("Venda iniciada com sucesso! ");
     }
 
-    @GetMapping("/retornalistaVenda/{id}")
-    public ResponseEntity<Venda> retornalistaVenda(@PathVariable Long id) {
-        return ResponseEntity.ok(vendaService.getVendaPorId(id));
-    }
-
-    @PostMapping("/adicionaProdutoVenda")
-    public ResponseEntity<String> adicionaprodutovenda(@Valid @RequestBody ProdutoVendaDTO produtoVendaDTO) {
-        vendaService.adicionaProdutoVenda(produtoVendaDTO);
+    @PostMapping("/adicionaProdutoVenda/venda/{id}")
+    public ResponseEntity<String> addProdutoVenda(@PathVariable Long id, @RequestBody @Valid ProdutoVendaDTO produtoVendaDTO) {
+        vendaService.adicionaProdutoVenda(id, produtoVendaDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body("Produto adicionado com sucesso! ");
     }
 
-    @DeleteMapping("/removeItemVendaPorId/{idItem}/{idVenda}")
-    public ResponseEntity<Venda> removeProdutoVenda(@PathVariable Long idItem, @PathVariable Long idVenda){
+    @DeleteMapping("/removeItemVendaPorId/venda/{idItem}/item/{idVenda}")
+    public ResponseEntity<Venda> removeItemFromVenda(@PathVariable Long idItem, @PathVariable Long idVenda){
         vendaService.removeItemVenda(idVenda, idItem);
         return ResponseEntity.ok(vendaService.getVendaPorId(idVenda));
     }
