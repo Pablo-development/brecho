@@ -15,7 +15,7 @@ import java.util.List;
 public class SaleDTO {
     private Long id;
     private LocalDateTime dateTime;
-    private List<ItemSaleDTO> saleItemList;
+    private List<SaleItemDTO> saleItemList;
 
     public SaleDTO toDTO(Sale sale) {
         SaleDTO dto = new SaleDTO();

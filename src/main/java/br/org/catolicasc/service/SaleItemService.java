@@ -1,6 +1,6 @@
 package br.org.catolicasc.service;
 
-import br.org.catolicasc.dto.ItemSaleDTO;
+import br.org.catolicasc.dto.SaleItemDTO;
 import br.org.catolicasc.model.SaleItem;
 import br.org.catolicasc.model.Product;
 import br.org.catolicasc.model.Sale;
@@ -19,8 +19,8 @@ public class SaleItemService {
         this.saleItemRepository = saleItemRepository;
     }
 
-    public List<ItemSaleDTO> getSaleItemList() {
-        return saleItemRepository.findAll().stream().map(ItemSaleDTO::new).toList();
+    public List<SaleItemDTO> getSaleItemList() {
+        return saleItemRepository.findAll().stream().map(SaleItemDTO::new).toList();
     }
 
     public SaleItem createSaleItem(Sale sale, Product product) {
@@ -38,8 +38,8 @@ public class SaleItemService {
                 .orElseThrow(() -> new EntityNotFoundException("Item not found in sale"));
     }
 
-    public List<ItemSaleDTO> getSoldItemsBySaleId(Long id) {
+    public List<SaleItemDTO> getSoldItemsBySaleId(Long id) {
         return saleItemRepository.getItemVendaListByIdItem(id)
-                .stream().map(ItemSaleDTO::new).toList();
+                .stream().map(SaleItemDTO::new).toList();
     }
 }

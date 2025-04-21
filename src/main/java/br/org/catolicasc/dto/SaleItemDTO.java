@@ -7,12 +7,12 @@ import jakarta.validation.constraints.NotNull;
 
 @Getter
 @Setter
-public class ItemSaleDTO extends ProductItemSaleDTO {
+public class SaleItemDTO extends ProductItemSaleDTO {
 
     @NotNull
     private Long saleItemId;
 
-    public ItemSaleDTO(SaleItem saleItem) {
+    public SaleItemDTO(SaleItem saleItem) {
         super(saleItem);
         this.saleItemId = saleItem.getIdItem();
     }
