@@ -1,6 +1,6 @@
 package br.org.catolicasc.controller;
 
-import br.org.catolicasc.dto.ItemSaleDTO;
+import br.org.catolicasc.dto.SaleItemDTO;
 import br.org.catolicasc.service.SaleItemService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,14 +21,14 @@ public class SaleItemController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ItemSaleDTO>> getAll() {
-        List<ItemSaleDTO> itemList = saleItemService.getSaleItemList();
+    public ResponseEntity<List<SaleItemDTO>> getAll() {
+        List<SaleItemDTO> itemList = saleItemService.getSaleItemList();
         return ResponseEntity.ok().body(itemList);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<List<ItemSaleDTO>> getSoldItemListBySaleId(@PathVariable Long id) {
-        List<ItemSaleDTO> itemList = saleItemService.getSoldItemsBySaleId(id);
+    public ResponseEntity<List<SaleItemDTO>> getSoldItemListBySaleId(@PathVariable Long id) {
+        List<SaleItemDTO> itemList = saleItemService.getSoldItemsBySaleId(id);
         return ResponseEntity.ok(itemList);
     }
 }
