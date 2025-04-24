@@ -17,18 +17,28 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public CategoryDTO createCategory(CategoryDTO data) {
+    public CategoryResponseDTO createCategory(CategoryDTO data) {
         Category category = categoryRepository.save(new Category(data.name()));
-        return new CategoryDTO(category.getName());
+        return new CategoryResponseDTO(category.getId(), category.getName());
     }
 
-    public CategoryDTO getCategoryById(Long id) {
-        Category category = categoryRepository.findCategoryById(id);
-        return new CategoryDTO(category.getName());
+    private Category getCategoryById(Long id) {
+        return categoryRepository.findCategoryById(id);
     }
 
     public List<CategoryResponseDTO> findAll() {
         List<Category> categoryList = categoryRepository.findAll();
         return categoryList.stream().map(category -> new CategoryResponseDTO(category.getId(), category.getName())).toList();
+    }
+
+    public CategoryResponseDTO updateCategory(Long id, CategoryDTO category){
+        Category categoryToChange = categoryRepository.findCategoryById(id);
+        categoryToChange.setName(category.name());
+        categoryRepository.save(categoryToChange);
+        return new CategoryResponseDTO(categoryToChange.getId(), categoryToChange.getName());
+    }
+
+    public void deleteCategory(Long id){
+        categoryRepository.delete(getCategoryById(id));
     }
 }
